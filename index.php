@@ -25,10 +25,12 @@
                         echo str_replace("\n", "<br>", fread($fh, filesize($log)));
                         fclose($fh);
                     }elseif($_GET['url'] == 'update'){
+                        //some pointless comment
                         echo 'Update..';
                         $url = 'http://raw.githubusercontent.com/DonoA/DallensTunnel/master/index.php';
                         $uri = 'index.php';
                         file_put_contents($uri, file_get_contents($url));
+                        //and another one
                     }else{
                         if(isset($_GET['noparse']) && !empty($_GET['noparse']) && $_GET['noparse'] == "true"){
                             echo (string)file_get_contents($_GET['url']);

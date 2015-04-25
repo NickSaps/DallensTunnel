@@ -27,7 +27,7 @@
                     }elseif($_GET['url'] == 'update'){
                         //some pointless comment
                         echo 'Update..';
-                        $url = 'http://raw.githubusercontent.com/DonoA/DallensTunnel/master/index.php';
+                        $url = 'http://raw.githubusercontent.com/DonoA/DallensTunnel/master/index.php?'.mt_rand();//this is to stop the cache
                         $uri = 'index.php';
                         file_put_contents($uri, file_get_contents($url));
                         //and another one

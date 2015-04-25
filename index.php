@@ -24,6 +24,12 @@
                         $fh = fopen($log, 'r') or die("can't open file");
                         echo str_replace("\n", "<br>", fread($fh, filesize($log)));
                         fclose($fh);
+                    }elseif($_GET['url'] == 'update'){
+                        $url = 'http://raw.githubusercontent.com/DonoA/DallensTunnel/master/index.php';
+                        $uri = 'index-s.php';
+                        file_put_contents($uri, file_get_contents($url));
+                        echo shell_exec('sh reload.sh');
+                        echo 'Success';
                     }else{
                         if(isset($_GET['noparse']) && !empty($_GET['noparse']) && $_GET['noparse'] == "true"){
                             echo (string)file_get_contents($_GET['url']);
